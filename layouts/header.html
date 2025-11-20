@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Parfumer - Parfums d'exception</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.js">
+    
+
+</head>
+<body class="bg-light text-dark">
+    <!-- Bannière promotionnelle -->
+    <div class="promo-banner py-2 text-center text-dark font-medium">
+        <p class="text-sm md:text-base">-50% sur toute la boutique avec le code <span class="font-bold">PROMO50</span></p>
+    </div>
+
+    <!-- Header -->
+    <!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+            <div class="md:flex md:items-center md:gap-12">
+                <a class="block text-gold" href="#">
+                    <span class="sr-only">Accueil</span>
+                    <h1 class="text-2xl font-serif font-bold">Omar <span class="text-black">Parfumer</span></h1>
+                </a>
+            </div>
+
+            <div class="hidden md:block">
+                <nav aria-label="Navigation principale">
+                    <ul class="flex items-center gap-8 text-sm font-medium">
+                        <li>
+                            <a class="text-dark transition hover:text-gold" href="#">ACCUEIL</a>
+                        </li>
+                        <li>
+                            <a class="text-dark transition hover:text-gold" href="#">ORIGINAUX</a>
+                        </li>
+                        <li>
+                            <a class="text-dark transition hover:text-gold" href="#">DÉCANTERS</a>
+                        </li>
+                        <li>
+                            <a class="text-dark transition hover:text-gold" href="#">DUPES</a>
+                        </li>
+                        <li>
+                            <a class="text-dark transition hover:text-gold" href="#">PROMOTIONS</a>
+                        </li>
+                        <li>
+                            <a class="text-dark transition hover:text-gold" href="#">CONTACT</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!-- Barre de recherche desktop -->
+                <div class="hidden md:block">
+                    <div class="relative w-64">
+                        <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gold focus:border-gold" placeholder="Rechercher un parfum..." required />
+                        <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-gold rounded-e-lg border border-gold hover:bg-opacity-90 focus:ring-4 focus:outline-none focus:ring-gold">
+                            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                            </svg>
+                            <span class="sr-only">Rechercher</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Icône recherche mobile -->
+                <div class="block md:hidden">
+                    <button id="mobile-search-button" class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gold mr-2">
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                        <span class="sr-only">Rechercher</span>
+                    </button>
+                </div>
+
+                <!-- Bouton menu mobile -->
+                <div class="block md:hidden">
+                    <button id="mobile-menu-button" class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gold">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barre de recherche mobile (cachée par défaut) -->
+        <div id="mobile-search-bar" class="hidden md:hidden px-4 pb-4">
+            <div class="relative">
+                <input type="search" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gold focus:border-gold" placeholder="Rechercher un parfum..." required />
+                <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-gold rounded-e-lg border border-gold hover:bg-opacity-90">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                    <span class="sr-only">Rechercher</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t">
+        <div class="px-4 pt-2 pb-3 space-y-1">
+            <a href="#" class="block px-3 py-2 text-base font-medium text-dark hover:text-gold hover:bg-gray-50 rounded-md">ACCUEIL</a>
+            <a href="#" class="block px-3 py-2 text-base font-medium text-dark hover:text-gold hover:bg-gray-50 rounded-md">ORIGINAUX</a>
+            <a href="#" class="block px-3 py-2 text-base font-medium text-dark hover:text-gold hover:bg-gray-50 rounded-md">DÉCANTERS</a>
+            <a href="#" class="block px-3 py-2 text-base font-medium text-dark hover:text-gold hover:bg-gray-50 rounded-md">DUPES</a>
+            <a href="#" class="block px-3 py-2 text-base font-medium text-dark hover:text-gold hover:bg-gray-50 rounded-md">PROMOTIONS</a>
+            <a href="#" class="block px-3 py-2 text-base font-medium text-dark hover:text-gold hover:bg-gray-50 rounded-md">CONTACT</a>
+        </div>
+    </div>
+</header>
+
+
+
+

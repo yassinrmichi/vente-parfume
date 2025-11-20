@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Parfumer - Parfums d'exception</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.js">
+    
+
+</head>
+<body class="bg-light text-dark">
+    <!-- Bannière promotionnelle -->
+    <div class="promo-banner py-2 text-center text-dark font-medium">
+        <p class="text-sm md:text-base">-50% sur toute la boutique avec le code <span class="font-bold">PROMO50</span></p>
+    </div>
+
+    <!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+            <div class="md:flex md:items-center md:gap-12">
+                <a class="block text-gold" href="#">
+                    <span class="sr-only">Accueil</span>
+                    <h1 class="text-2xl font-serif font-bold">Omar <span class="text-black">Parfumer</span></h1>
+                </a>
+            </div>
+
+            <div class="hidden md:block">
+                <nav aria-label="Navigation principale">
+                    <ul class="flex items-center gap-8 text-sm font-medium">
+                        <li><a class="text-dark transition hover:text-gold" href="#">ACCUEIL</a></li>
+                        <li><a class="text-gold font-bold" href="#">ORIGINAUX</a></li>
+                        <li><a class="text-dark transition hover:text-gold" href="./decantes.html">DÉCANTERS</a></li>
+                        <li><a class="text-dark transition hover:text-gold" href="./dupes.html">DUPES</a></li>
+                        <li><a class="text-dark transition hover:text-gold" href="#">PROMOTIONS</a></li>
+                        <li><a class="text-dark transition hover:text-gold" href="#">CONTACT</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!-- Barre de recherche desktop -->
+                <div class="hidden md:block">
+                    <div class="relative w-64">
+                        <input type="search" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gold focus:border-gold" placeholder="Rechercher un parfum..." required />
+                        <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-gold rounded-e-lg border border-gold hover:bg-opacity-90">
+                            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Icône panier desktop -->
+                <div class="hidden md:block relative">
+                    <button class="p-2 text-gray-600 hover:text-gold transition relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-gold text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">0</span>
+                    </button>
+                </div>
+
+                <!-- Icônes mobile -->
+                <div class="flex items-center gap-2 md:hidden">
+                    <!-- Icône recherche mobile -->
+                    <button id="mobile-search-button" class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gold">
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                        <span class="sr-only">Rechercher</span>
+                    </button>
+
+                    <!-- Icône panier mobile -->
+                    <button class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gold relative">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-gold text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-bold">3</span>
+                        <span class="sr-only">Panier</span>
+                    </button>
+
+                    <!-- Bouton menu mobile -->
+                    <button id="mobile-menu-button" class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gold">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barre de recherche mobile (cachée par défaut) -->
+        <div id="mobile-search-bar" class="hidden md:hidden px-4 pb-4">
+            <div class="relative">
+                <input type="search" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gold focus:border-gold" placeholder="Rechercher un parfum..." required />
+                <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-gold rounded-e-lg border border-gold hover:bg-opacity-90">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                    <span class="sr-only">Rechercher</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t">
+        <div class="px-4 pt-2 pb-3 space-y-1">
+            <a href="#" class="block px-3 py-2 text-base font-medium text-dark hover:text-gold hover:bg-gray-50 rounded-md">ACCUEIL</a>
+            <a href="#" class="block px-3 py-2 text-base font-medium text-dark hover:text-gold hover:bg-gray-50 rounded-md">ORIGINAUX</a>
+            <a href="./decantes.html" class="block px-3 py-2 text-base font-medium text-dark hover:text-gold hover:bg-gray-50 rounded-md">DÉCANTERS</a>
+            <a href="#" class="block px-3 py-2 text-base font-medium text-dark hover:text-gold hover:bg-gray-50 rounded-md">DUPES</a>
+            <a href="#" class="block px-3 py-2 text-base font-medium text-dark hover:text-gold hover:bg-gray-50 rounded-md">PROMOTIONS</a>
+            <a href="#" class="block px-3 py-2 text-base font-medium text-dark hover:text-gold hover:bg-gray-50 rounded-md">CONTACT</a>
+        </div>
+    </div>
+</header>
+
+    <!-- Section Nos Collections -->
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Découvrez Nos Collections</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Explorez notre univers de fragrances soigneusement sélectionnées pour toutes les occasions</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Carte Originaux -->
+            <div class="group relative overflow-hidden rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-br from-amber-900 via-amber-800 to-yellow-600"></div>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-500"></div>
+                
+                <div class="relative p-8 h-96 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center gap-2 bg-amber-500/20 backdrop-blur-sm border border-amber-400/30 rounded-full px-4 py-2 mb-6">
+                            <i class="fas fa-crown text-amber-300"></i>
+                            <span class="text-amber-100 font-semibold text-sm uppercase tracking-wide">Collection Premium</span>
+                        </div>
+                        <h3 class="text-3xl font-serif font-bold text-white mb-4">Parfums Originaux</h3>
+                        <p class="text-amber-100 text-lg leading-relaxed">
+                            Les créations authentiques des plus grandes maisons de parfumerie. 
+                            L'excellence à l'état pur.
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4 text-amber-200">
+                            <div class="flex items-center gap-1">
+                                <i class="fas fa-star"></i>
+                                <span class="font-semibold" style="font-size: 12px;">Marques Luxe</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <i class="fas fa-gem"></i>
+                                <span class="font-semibold" style="font-size: 12px;">100% Authentique</span>
+                            </div>
+                        </div>
+                        <a href="./originaux.html" class="bg-amber-500 hover:bg-amber-400 text-amber-900 font-bold px-6 py-3 rounded-full transition-all duration-300 transform group-hover:translate-x-2 flex items-center gap-2">
+                            Découvrir
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Élément décoratif -->
+                <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-amber-400/20 rounded-full blur-xl"></div>
+                <div class="absolute -left-4 -top-4 w-20 h-20 bg-yellow-300/10 rounded-full blur-lg"></div>
+            </div>
+
+            <!-- Carte Décanteurs -->
+            <div class="group relative overflow-hidden rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-600"></div>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-500"></div>
+                
+                <div class="relative p-8 h-96 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center gap-2 bg-purple-500/20 backdrop-blur-sm border border-purple-400/30 rounded-full px-4 py-2 mb-6">
+                            <i class="fas fa-flask text-purple-300"></i>
+                            <span class="text-purple-100 font-semibold text-sm uppercase tracking-wide">Format Intelligent</span>
+                        </div>
+                        <h3 class="text-3xl font-serif font-bold text-white mb-4">Décanteurs</h3>
+                        <p class="text-purple-100 text-lg leading-relaxed">
+                            Profitez des parfums de luxe à prix accessible. 
+                            Testez avant d'investir dans le flacon complet.
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4 text-purple-200">
+                            <div class="flex items-center gap-1">
+                                <i class="fas fa-euro-sign"></i>
+                                <span class="font-semibold">Jusqu'à -80%</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <i class="fas fa-vial"></i>
+                                <span class="font-semibold">5-30ml</span>
+                            </div>
+                        </div>
+                        <a href="./decantes.html" class="bg-purple-500 hover:bg-purple-400 text-purple-900 font-bold px-6 py-3 rounded-full transition-all duration-300 transform group-hover:translate-x-2 flex items-center gap-2">
+                            Découvrir
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Élément décoratif -->
+                <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-purple-400/20 rounded-full blur-xl"></div>
+                <div class="absolute -left-4 -top-4 w-20 h-20 bg-indigo-300/10 rounded-full blur-lg"></div>
+            </div>
+
+            <!-- Carte Dupes -->
+            <div class="group relative overflow-hidden rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-br from-pink-700 via-rose-600 to-red-500"></div>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-500"></div>
+                
+                <div class="relative p-8 h-96 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center gap-2 bg-pink-500/20 backdrop-blur-sm border border-pink-400/30 rounded-full px-4 py-2 mb-6">
+                            <i class="fas fa-chart-line text-pink-300"></i>
+                            <span class="text-pink-100 font-semibold text-sm uppercase tracking-wide">Alternative Maline</span>
+                        </div>
+                        <h3 class="text-3xl font-serif font-bold text-white mb-4">Dupes</h3>
+                        <p class="text-pink-100 text-lg leading-relaxed">
+                            Des alternatives de qualité aux parfums de créateurs. 
+                            Même l'émotion, prix divisé par 10.
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4 text-pink-200">
+                            <div class="flex items-center gap-1">
+                                <i class="fas fa-percentage"></i>
+                                <span class="font-semibold">Jusqu'à -90%</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="font-semibold">95% Similarité</span>
+                            </div>
+                        </div>
+                        <a href="./dupes.html" class="bg-pink-500 hover:bg-pink-400 text-pink-900 font-bold px-6 py-3 rounded-full transition-all duration-300 transform group-hover:translate-x-2 flex items-center gap-2">
+                            Découvrir
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Élément décoratif -->
+                <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-pink-400/20 rounded-full blur-xl"></div>
+                <div class="absolute -left-4 -top-4 w-20 h-20 bg-rose-300/10 rounded-full blur-lg"></div>
+            </div>
+
+        </div>
+
+        <!-- Bannière promotionnelle en bas -->
+        <div class="mt-12 bg-gradient-to-r from-gold to-yellow-400 rounded-2xl p-8 text-center shadow-lg">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-left">
+                    <h3 class="text-2xl font-serif font-bold text-gray-900 mb-2">Promotion Exceptionnelle</h3>
+                    <p class="text-gray-800 text-lg">-50% sur toute la boutique avec le code <span class="font-bold bg-white/30 px-2 py-1 rounded">PROMO50</span></p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="bg-gray-900 hover:bg-black text-white font-bold px-8 py-3 rounded-full transition-all duration-300">
+                        Profiter de l'offre
+                    </a>
+                    <a href="#" class="border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 font-bold px-8 py-3 rounded-full transition-all duration-300">
+                        Voir tous les produits
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Section Catégories -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Nos Collections</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Découvrez notre sélection soigneusement élue de parfums pour toutes les occasions</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Carte 1 -->
+                <div class="product-card bg-light rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('./images/creed.webp')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Parfums Originaux</h3>
+                        <p class="text-gray-600 mb-4">Des créations authentiques des plus grandes maisons de parfumerie</p>
+                        <!-- From Uiverse.io by MuhammadHasann - Adapté pour Omar Parfumer -->
+                          <button class="button">
+                            <div class="dots_border"></div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              class="sparkle"
+                            >
+                              <path
+                                class="path"
+                                stroke-linejoin="round"
+                                stroke-linecap="round"
+                                stroke="black"
+                                fill="black"
+                                d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
+                              ></path>
+                              <path
+                                class="path"
+                                stroke-linejoin="round"
+                                stroke-linecap="round"
+                                stroke="black"
+                                fill="black"
+                                d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
+                              ></path>
+                              <path
+                                class="path"
+                                stroke-linejoin="round"
+                                stroke-linecap="round"
+                                stroke="black"
+                                fill="black"
+                                d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
+                              ></path>
+                            </svg>
+                            <span class="text_button ">Découvrir</span>
+                          </button>
+                    </div>
+                </div>
+                
+                <!-- Carte 2 -->
+                <div class="product-card bg-light rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('./images/decante.webp')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Décanteurs</h3>
+                        <p class="text-gray-600 mb-4">Profitez de parfums de luxe à des prix accessibles avec nos décanteurs</p>
+                        <!-- From Uiverse.io by MuhammadHasann - Adapté pour Omar Parfumer -->
+                          <button class="button">
+                            <div class="dots_border"></div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              class="sparkle"
+                            >
+                              <path
+                                class="path"
+                                stroke-linejoin="round"
+                                stroke-linecap="round"
+                                stroke="black"
+                                fill="black"
+                                d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
+                              ></path>
+                              <path
+                                class="path"
+                                stroke-linejoin="round"
+                                stroke-linecap="round"
+                                stroke="black"
+                                fill="black"
+                                d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
+                              ></path>
+                              <path
+                                class="path"
+                                stroke-linejoin="round"
+                                stroke-linecap="round"
+                                stroke="black"
+                                fill="black"
+                                d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
+                              ></path>
+                            </svg>
+                            <span class="text_button ">Découvrir</span>
+                          </button>
+                    </div>
+                </div>
+                
+                <!-- Carte 3 -->
+                <div class="product-card bg-light rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('./images/dupe.webp')"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2">Dupes</h3>
+                        <p class="text-gray-600 mb-4">Des alternatives de qualité aux parfums de créateurs à prix abordables</p>
+                        
+                      <!-- From Uiverse.io by MuhammadHasann - Adapté pour Omar Parfumer -->
+                      <button class="button">
+                        <div class="dots_border"></div>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          class="sparkle"
+                        >
+                          <path
+                            class="path"
+                            stroke-linejoin="round"
+                            stroke-linecap="round"
+                            stroke="black"
+                            fill="black"
+                            d="M14.187 8.096L15 5.25L15.813 8.096C16.0231 8.83114 16.4171 9.50062 16.9577 10.0413C17.4984 10.5819 18.1679 10.9759 18.903 11.186L21.75 12L18.904 12.813C18.1689 13.0231 17.4994 13.4171 16.9587 13.9577C16.4181 14.4984 16.0241 15.1679 15.814 15.903L15 18.75L14.187 15.904C13.9769 15.1689 13.5829 14.4994 13.0423 13.9587C12.5016 13.4181 11.8321 13.0241 11.097 12.814L8.25 12L11.096 11.187C11.8311 10.9769 12.5006 10.5829 13.0413 10.0423C13.5819 9.50162 13.9759 8.83214 14.186 8.097L14.187 8.096Z"
+                          ></path>
+                          <path
+                            class="path"
+                            stroke-linejoin="round"
+                            stroke-linecap="round"
+                            stroke="black"
+                            fill="black"
+                            d="M6 14.25L5.741 15.285C5.59267 15.8785 5.28579 16.4206 4.85319 16.8532C4.42059 17.2858 3.87853 17.5927 3.285 17.741L2.25 18L3.285 18.259C3.87853 18.4073 4.42059 18.7142 4.85319 19.1468C5.28579 19.5794 5.59267 20.1215 5.741 20.715L6 21.75L6.259 20.715C6.40725 20.1216 6.71398 19.5796 7.14639 19.147C7.5788 18.7144 8.12065 18.4075 8.714 18.259L9.75 18L8.714 17.741C8.12065 17.5925 7.5788 17.2856 7.14639 16.853C6.71398 16.4204 6.40725 15.8784 6.259 15.285L6 14.25Z"
+                          ></path>
+                          <path
+                            class="path"
+                            stroke-linejoin="round"
+                            stroke-linecap="round"
+                            stroke="black"
+                            fill="black"
+                            d="M6.5 4L6.303 4.5915C6.24777 4.75718 6.15472 4.90774 6.03123 5.03123C5.90774 5.15472 5.75718 5.24777 5.5915 5.303L5 5.5L5.5915 5.697C5.75718 5.75223 5.90774 5.84528 6.03123 5.96877C6.15472 6.09226 6.24777 6.24282 6.303 6.4085L6.5 7L6.697 6.4085C6.75223 6.24282 6.84528 6.09226 6.96877 5.96877C7.09226 5.84528 7.24282 5.75223 7.4085 5.697L8 5.5L7.4085 5.303C7.24282 5.24777 7.09226 5.15472 6.96877 5.03123C6.84528 4.90774 6.75223 4.75718 6.697 4.5915L6.5 4Z"
+                          ></path>
+                        </svg>
+                        <span class="text_button ">Découvrir</span>
+                      </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section class="py-16 bg-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Omar Parfumer</h2>
+                    <p class="text-lg mb-6">Depuis plus de 10 ans, Omar Parfumer s'est imposé comme une référence dans le monde de la parfumerie de luxe. Notre passion pour les fragrances d'exception nous pousse à sélectionner les créations les plus rares et les plus envoûtantes.</p>
+                    <p class="text-lg mb-8">Nous croyons que chaque parfum raconte une histoire, et nous nous engageons à vous aider à trouver celui qui exprimera parfaitement votre personnalité.</p>
+                    <a href="#" class="inline-block bg-gold text-white px-8 py-3 rounded-md font-medium hover:bg-opacity-90 transition">Notre histoire</a>
+                </div>
+                <div class="bg-cover bg-center h-96 rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1595425970375-345595f60d72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-serif font-bold mb-4">Omar Parfumer</h3>
+                    <p class="text-gray-400">Votre destination pour des parfums d'exception et des fragrances rares.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition">Accueil</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition">Originaux</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition">Décanteurs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition">Dupes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition">Promotions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Informations</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition">À propos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition">Livraison</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition">Retours</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gold transition">CGV</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 123 Rue du Parfum, Paris</li>
+                        <li class="text-gray-400"><i class="fas fa-phone mr-2"></i> +33 1 23 45 67 89</li>
+                        <li class="text-gray-400"><i class="fas fa-envelope mr-2"></i> contact@omarparfumer.com</li>
+                    </ul>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Omar Parfumer. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+     <script src="style.js"></script>
+    
+</body>
+</html>
